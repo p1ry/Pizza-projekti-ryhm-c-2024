@@ -89,58 +89,52 @@
 						<div class="in-box">
 							<head>
 								
-								<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     
-</head>
-<body>
-    <p id="tervetulo_teksti">Tervetuloa </p>
-    <form id="kirjautumis_lomake">
-        <h3><input id="nimi" type="text" placeholder="Syötä nimesi" value="" /></h3>
-        <h3><input id="salasana" type="password" placeholder="Syötä salasana" value="" /></h3>
-        <h4><input type="button" value="Kirjaudu sisään" id="kirjaudu_nappi" onclick="kirjaudu()" /></h4>
-    </form>
-    <h5><button id="kirjaudu_ulos_nappi" style="display: none;" onclick="kirjauduUlos()">Kirjaudu ulos</button></h5>
+	<head>
+		<meta charset="UTF-8" />
+		<title>demo8</title>
+		<script type="text/javascript" language="javascript" src="kirjau.js"></script>
+		<script type="text/javascript">
+			function tarkistaKirjautuminen() {
+				var kirjautunut = localStorage.getItem('kirjautunut');
+				var kirjauduUlosNappi = document.getElementById('kirjaudu_ulos_nappi');
+	
+				if (kirjautunut) {
+					kirjauduUlosNappi.style.display = 'block';
+				} else {
+					kirjauduUlosNappi.style.display = 'none';
+				}
+			}
+	
+			function kirjauduUlos() {
+				localStorage.removeItem('kirjautunut');
+				tarkistaKirjautuminen(); 
+			}
+	
+			document.addEventListener('DOMContentLoaded', function () {
+				tarkistaKirjautuminen();
+			});
+		</script>
+	</head>
+	
+	<body>
+		<h1><p id="tervetulo_teksti">Tervetuloa </p>
+		<form id="kirjautumis_lomake">
+			<input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
+			<input type="submit" value="Kirjaudu sisään" id="kirjaudu_nappi" onclick="kirjaudu()" /></h1>
+		</form>
+		<h2><button id="kirjaudu_ulos_nappi" style="display: none;" onclick="kirjauduUlos()">Kirjaudu ulos</button></h2>
+	</body>
+	
+								
 
-    <script>
-        function tarkistaKirjautuminen() {
-            var kirjautunut = localStorage.getItem('kirjautunut');
-            var kirjauduUlosNappi = document.getElementById('kirjaudu_ulos_nappi');
-    
-            if (kirjautunut) {
-                kirjauduUlosNappi.style.display = 'block';
-            } else {
-                kirjauduUlosNappi.style.display = 'none';
-            }
-        }
-    
-        function kirjaudu() {}
-            var nimi = document.getElementById('nimi').value;
-            var salasana = document.getElementById('salasana').value;
-           
-    
-        function kirjauduUlos() {
-            localStorage.removeItem('kirjautunut');
-            tarkistaKirjautuminen(); 
-        }
-    
-        document.addEventListener('DOMContentLoaded', function () {
-            tarkistaKirjautuminen();
-        });
-    </script>
-</body>
-</html>
+							</head>
+			</body>
 
-						</div>
-					</div>
-				</div>
-			</div>	
-			
-			
-			
+
 			
 		
 	</section>
