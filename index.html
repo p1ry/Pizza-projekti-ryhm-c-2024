@@ -94,7 +94,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kirjautumislomake</title>
+    
 </head>
 <body>
     <p id="tervetulo_teksti">Tervetuloa </p>
@@ -117,20 +117,10 @@
             }
         }
     
-        function kirjaudu() {
+        function kirjaudu() {}
             var nimi = document.getElementById('nimi').value;
             var salasana = document.getElementById('salasana').value;
-            // Tässä voit lisätä tarkistuksen nimen ja salasanan suhteen
-            // Esimerkiksi voit verrata niitä tallennettuihin arvoihin
-    
-            // Tarkistus, voit vaihtaa tähän sopivan ehdollisen lauseen
-            if (nimi === "oikeaNimi" && salasana === "oikeaSalasana") {
-                localStorage.setItem('kirjautunut', true);
-                tarkistaKirjautuminen();
-            } else {
-                alert("Väärä käyttäjänimi tai salasana!");
-            }
-        }
+           
     
         function kirjauduUlos() {
             localStorage.removeItem('kirjautunut');
