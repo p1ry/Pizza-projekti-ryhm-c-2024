@@ -70,13 +70,7 @@
               <a class="nav-link js-scroll-trigger" href="#gallery"><span>Gallery</span></a>
             </li>
 			
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#pricing"><span>Pricing</span></a>
-            </li>
-			
-			<li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact"><span>Contect Us</span></a>
-            </li>
+           
           </ul>
         </div>
       </div>
@@ -93,18 +87,63 @@
 				<div class="container">
 					<div class="slider-content text-white">
 						<div class="in-box">
-							<h1>Rekisteröi
+							<head>
+								
+								<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirjautumislomake</title>
+</head>
+<body>
+    <p id="tervetulo_teksti">Tervetuloa </p>
+    <form id="kirjautumis_lomake">
+        <h3><input id="nimi" type="text" placeholder="Syötä nimesi" value="" /></h3>
+        <h3><input id="salasana" type="password" placeholder="Syötä salasana" value="" /></h3>
+        <h4><input type="button" value="Kirjaudu sisään" id="kirjaudu_nappi" onclick="kirjaudu()" /></h4>
+    </form>
+    <h5><button id="kirjaudu_ulos_nappi" style="display: none;" onclick="kirjauduUlos()">Kirjaudu ulos</button></h5>
 
-							</h1>
-							<h3><form id ="kirjautmis_lomake">
-		
-								<input id="nimi" type="text" placeholder="Syötä nimesi" value="" />
-								
-								
-							 </form></h3>
-							 <h4><input id="nimi" type="text" placeholder="Salasana" value="" /></h4>
-							 <h5><input type="submit" value="Kirjaudu sisään" id="kirjaudu_nappi"    onclick="kirjaudu()"/></h5>
-							
+    <script>
+        function tarkistaKirjautuminen() {
+            var kirjautunut = localStorage.getItem('kirjautunut');
+            var kirjauduUlosNappi = document.getElementById('kirjaudu_ulos_nappi');
+    
+            if (kirjautunut) {
+                kirjauduUlosNappi.style.display = 'block';
+            } else {
+                kirjauduUlosNappi.style.display = 'none';
+            }
+        }
+    
+        function kirjaudu() {
+            var nimi = document.getElementById('nimi').value;
+            var salasana = document.getElementById('salasana').value;
+            // Tässä voit lisätä tarkistuksen nimen ja salasanan suhteen
+            // Esimerkiksi voit verrata niitä tallennettuihin arvoihin
+    
+            // Tarkistus, voit vaihtaa tähän sopivan ehdollisen lauseen
+            if (nimi === "oikeaNimi" && salasana === "oikeaSalasana") {
+                localStorage.setItem('kirjautunut', true);
+                tarkistaKirjautuminen();
+            } else {
+                alert("Väärä käyttäjänimi tai salasana!");
+            }
+        }
+    
+        function kirjauduUlos() {
+            localStorage.removeItem('kirjautunut');
+            tarkistaKirjautuminen(); 
+        }
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            tarkistaKirjautuminen();
+        });
+    </script>
+</body>
+</html>
+
 						</div>
 					</div>
 				</div>
@@ -128,7 +167,7 @@
 						<p>Meidän työntekiät ovat todella mukavia kaikille asiakkaille ja he kuuntelevat myös jos haluat tehdä pizzaan omia muutoksia. 
                          Meillä on myös meidän oma verkkosivumme jota käytät tällä hetkellä, pystyt tilata oman pizzan menu kohdasta painamalla sen pizzan hintaa. 
 						 Hyvää pizzaista päivää toivottaa meidän henkilökunta</p>
-                        <a href="#" class="sim-btn hvr-radial-in"><span>Contact Us</span></a>
+                      
                     </div><!-- end messagebox -->
                 </div><!-- end col -->
 
